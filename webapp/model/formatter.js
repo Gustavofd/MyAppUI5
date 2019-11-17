@@ -3,7 +3,7 @@ sap.ui.define([], function(){
     "use strict";
     return{
         delivery: function(sMeasure, iWeight){
-            var oResourceBundle = this.getView().getModel("i18n").getResourceBundles(),
+            var oResourceBundle = this.getView().getModel("i18n").getResourceBundle(),
             sResult = "";
             if (sMeasure === "G") {
                 iWeight = iWeight / 1000;
