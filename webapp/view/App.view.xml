@@ -54,10 +54,10 @@
 								<content>
 									<List headerText="{i18n>productListTitle}" items="{/ProductSet}">
 										<items>
-											<ObjectListItem title="{Name} da {SupplierName}"
+											<ObjectListItem title="{Name} da {SupplierName} ({Category})"
 															number="{Price}"
 															numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
-															intro="{ProductID} ({Category})">
+															intro="{ProductID} (Peso: {WeightUnit} un: {WeightMeasure})">
                                                 <firstStatus>
                                                     <ObjectStatus text="{
                                                         parts: [
