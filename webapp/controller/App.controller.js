@@ -1,11 +1,15 @@
 sap.ui.define(
 	[
 		"sap/ui/core/mvc/Controller",
-		"sap/m/MessageToast"
+		"sap/m/MessageToast",
+		"opensap/myapp/model/formatter"
 	]
-	,function(Controller, MessageToast){
+	,function(Controller, MessageToast, formatter){
 		
 		Controller.extend("opensap.myapp.controller.App",{
+
+		    formatter: formatter,
+
 			onShowHello: function(){
 				//MessageToast.show("Que coisa mais linda!");
 				

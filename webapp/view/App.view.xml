@@ -6,7 +6,8 @@
 				<content>
 					<IconTabBar id="idTopLevelIconTabBar" selectedKey="db" class="sapUiResponsiveContentPadding">
 						<items>
-							<IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
+							<IconTabFilter id="start" text="{i18n>getting
+							StartedFilter}">
 								<Carousel loop="true" showPageIndicator="true" arrowsPlacement="PageIndicator">
 									<pages>
 										<Image src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/b/9/d/2/b9d2b185fef7ddaf6ba019c918b5b692.jpg" width="300px"
@@ -57,6 +58,15 @@
 															number="{Price}"
 															numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
 															intro="{ProductID} ({Category})">
+                                                <firstStatus>
+                                                    <ObjectStatus text="{
+                                                        parts: [
+                                                            {path: 'WeightUnit'},
+                                                            {path: 'WeightMeasure'}
+                                                         ],
+                                                         formatter : '.formatter.delivery'}">
+                                                    </ObjectStatus>
+                                                </firstStatus>
 											</ObjectListItem>
 										</items>
 									</List>
