@@ -55,6 +55,7 @@
 										<items>
 											<ObjectListItem title="{Name} da {SupplierName}"
 															number="{Price}"
+															numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
 															intro="{ProductID} ({Category})">
 											</ObjectListItem>
 										</items>
