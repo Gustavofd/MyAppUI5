@@ -3,7 +3,7 @@ sap.ui.define(
 		"sap/ui/core/mvc/Controller",
 		"sap/m/MessageToast",
 		"sap/ui/model/Filter",
-		"sap/ui/model/FilterOperator"
+		"sap/ui/model/FilterOperator",
 		"opensap/myapp/model/formatter"
 	]
 	,function(Controller, MessageToast, Filter, FilterOperator, formatter){
