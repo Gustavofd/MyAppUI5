@@ -92,7 +92,9 @@
 																}
 															}"
 															numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
-															intro="{ProductID} (Peso: {WeightUnit} un: {WeightMeasure})">
+															intro="{ProductID}"
+															press="onItemSelected"
+															type="Active">
                                                 <firstStatus>
                                                     <ObjectStatus text="{
                                                         parts: [
