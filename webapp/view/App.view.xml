@@ -52,8 +52,20 @@
 							</IconTabFilter>
 							<IconTabFilter text="{i18n>dataBindingFilter}" key="db">
 								<content>
-									<List id="productsList" items="{ path: 'ES5>/ProductSet', sorter: { path: 'ES5>Category', group: true } }" growing="true" growingThreshold="5"
-										growingScrollToLoad="false">
+									<List id="productsList"
+										  items="{
+											path: 'ES5>/ProductSet',
+											parameters: {
+												expand: 'ES5>ToSupplier'
+											},
+											sorter: {
+												path: 'ES5>Category',
+											 	group: true
+											}
+										  }"
+										  growing="true"
+										  growingThreshold="5"
+										  growingScrollToLoad="false">
 										<headerToolbar>
 											<Toolbar>
 												<Title text="{i18n>productListTitle}"/>
@@ -66,8 +78,19 @@
 												number="{ parts : [ {path: 'ES5>Price'}, {path: 'ES5>CurrencyCode'} ], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: true } }"
 												numberState="{= ${ES5>Price} > 500 ? 'Error' : 'Success'}" intro="{ES5>ProductID}" press="onItemSelected" type="Active">
 												<firstStatus>
-													<ObjectStatus text="{ parts: [ {path: 'ES5>WeightUnit'}, {path: 'ES5>WeightMeasure'} ], formatter : '.formatter.delivery'}"></ObjectStatus>
+													<ObjectStatus
+															text="{ parts: [
+															 	{path: 'ES5>WeightUnit'},
+															 	{path: 'ES5>WeightMeasure'} ],
+															 	formatter : '.formatter.delivery'}">
+													</ObjectStatus>
 												</firstStatus>
+												<secondStatus>
+													<ObjectStatus
+															title="{i18n>statusDeliveryFrom}"
+															text="{ES5>ToSupplier/Address/City}">
+													</ObjectStatus>
+												</secondStatus>
 											</ObjectListItem>
 										</items>
 									</List>

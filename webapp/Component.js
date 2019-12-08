@@ -13,6 +13,8 @@ sap.ui.define([
 			// call the init function of the parent
 			UIComponent.prototype.init.apply(this, arguments);
 
+			this.getModel().setUseBatch(false);
+
 			// additional initialization can be done here
 			
 		}
