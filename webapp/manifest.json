@@ -17,6 +17,13 @@
 				"settings": {
 					"odataVersion": "2.0"
 				}
+			},
+			"northwind": {
+				"uri": "/destinations/northwind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
 			}
 		}
 	},
@@ -68,7 +75,10 @@
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "model/Address.json"
 			},
-			"" : {
+			"northwind" : {
+				"dataSource": "northwind"
+			},
+			"ES5" : {
 				"dataSource": "ES5"
 			}
 		},

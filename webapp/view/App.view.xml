@@ -6,8 +6,7 @@
 				<content>
 					<IconTabBar id="idTopLevelIconTabBar" selectedKey="db" class="sapUiResponsiveContentPadding">
 						<items>
-							<IconTabFilter id="start" text="{i18n>getting
-							StartedFilter}">
+							<IconTabFilter id="start" text="{i18n>getting StartedFilter}">
 								<Carousel loop="true" showPageIndicator="true" arrowsPlacement="PageIndicator">
 									<pages>
 										<Image src="https://studiosol-a.akamaihd.net/uploadfile/letras/fotos/b/9/d/2/b9d2b185fef7ddaf6ba019c918b5b692.jpg" width="300px"
@@ -17,17 +16,10 @@
 									</pages>
 								</Carousel>
 								<Button text="{i18n>showHelloButtonText}" press="onShowHello"/>
-								<Input value="{
-								            path: 'helloPanel>/recipient/amount',
-								            type: 'sap.ui.model.type.Float',
-								            formatOptions: {minFractionDigits: 2},
-								            constraints: {maximum: 3000}
-								       }"
-                                       description="Hello {helloPanel>/recipient/name}"
-                                       valueLiveUpdate="false"
-                                       width="60%"/>
+								<Input
+									value="{ path: 'helloPanel>/recipient/amount', type: 'sap.ui.model.type.Float', formatOptions: {minFractionDigits: 2}, constraints: {maximum: 3000} }"
+									description="Hello {helloPanel>/recipient/name}" valueLiveUpdate="false" width="60%"/>
 							</IconTabFilter>
-							<IconTabFilter id="finish" text="Meu nome eh GuGu"></IconTabFilter>
 							<IconTabFilter id="layouts" text="{i18n>layoutFilter}">
 								<MessageStrip type="Information" showIcon="true" text="Here's a Form Layout inside an Icon Tab Bar …"/>
 								<f:SimpleForm id="simpleFormChange" title="Address" editable="true" class="editableForm sapUiSmallMarginTopBottom">
@@ -60,17 +52,8 @@
 							</IconTabFilter>
 							<IconTabFilter text="{i18n>dataBindingFilter}" key="db">
 								<content>
-									<List id="productsList"
-										  items="{
-										  		path: '/ProductSet',
-										  		sorter: {
-										  			path: 'Category',
-										  			group: true
-										  		}
-										  }"
-										  growing="true"
-										  growingThreshold="5"
-										  growingScrollToLoad="false">
+									<List id="productsList" items="{ path: 'ES5>/ProductSet', sorter: { path: 'ES5>Category', group: true } }" growing="true" growingThreshold="5"
+										growingScrollToLoad="false">
 										<headerToolbar>
 											<Toolbar>
 												<Title text="{i18n>productListTitle}"/>
@@ -78,45 +61,48 @@
 												<SearchField width="50%" search="onFilterProducts"/>
 											</Toolbar>
 										</headerToolbar>
-
 										<items>
-											<ObjectListItem title="{Name} da {SupplierName} ({Category})"
-															number="{
-																parts : [
-																	{path: 'Price'},
-																	{path: 'CurrencyCode'}
-																],
-																type: 'sap.ui.model.type.Currency',
-																formatOptions: {
-																	showMeasure: true
-																}
-															}"
-															numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
-															intro="{ProductID}"
-															press="onItemSelected"
-															type="Active">
-                                                <firstStatus>
-                                                    <ObjectStatus text="{
-                                                        parts: [
-                                                            {path: 'WeightUnit'},
-                                                            {path: 'WeightMeasure'}
-                                                         ],
-                                                         formatter : '.formatter.delivery'}">
-                                                    </ObjectStatus>
-                                                </firstStatus>
+											<ObjectListItem title="{ES5>Name} da {ES5>SupplierName} ({ES5>Category})"
+												number="{ parts : [ {path: 'ES5>Price'}, {path: 'ES5>CurrencyCode'} ], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: true } }"
+												numberState="{= ${ES5>Price} > 500 ? 'Error' : 'Success'}" intro="{ES5>ProductID}" press="onItemSelected" type="Active">
+												<firstStatus>
+													<ObjectStatus text="{ parts: [ {path: 'ES5>WeightUnit'}, {path: 'ES5>WeightMeasure'} ], formatter : '.formatter.delivery'}"></ObjectStatus>
+												</firstStatus>
 											</ObjectListItem>
 										</items>
 									</List>
-									<Panel id="productDatailsPanel"
-										   headerText="{i18n>productDetailPanelHeader}"
-										   visible="false">
-										   <l:Grid>
-										   		<Text text="{i18n>productDetailPanelID}: {ProductID}"/>
-												<Text text="{i18n>productDetailPanelName}: {Name}"/>
-												<Text text="{i18n>productDetailPanelDescription}:\n {Description}"/>
-												<Text text="{i18n>productDetailPanelPrice}: {Price}"/>
-										   </l:Grid>
+									<Panel id="productDetailsPanel" headerText="{i18n>productDetailPanelHeader}" visible="false">
+										<l:Grid>
+											<Text text="{i18n>productDetailPanelID}: {ES5>ProductID}"/>
+											<Text text="{i18n>productDetailPanelName}: {ES5>Name}"/>
+											<Text text="{i18n>productDetailPanelDescription}:\n {ES5>Description}"/>
+											<Text text="{i18n>productDetailPanelPrice}: {ES5>Price}"/>
+										</l:Grid>
 									</Panel>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="Northwind - Employees" key="northwindEmployees">
+								<content>
+									<List id="northwindEmployees" items="{ path: 'northwind>/Employees' }">
+										<items>
+											<ObjectListItem title="{northwind>FirstName}"
+												number="{northwind>EmployeeID}"
+												intro="{northwind>City}">
+											</ObjectListItem>
+										</items>
+									</List>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="AMS21 - Mapeamento Regra ZSer" key="ams21MapRegraZser">
+								<content>
+									<List id="ams21MapRegraZser" items="{ path: 'northwind>/Employees' }">
+										<items>
+											<ObjectListItem title="{northwind>FirstName}"
+												number="{northwind>EmployeeID}"
+												intro="{northwind>City}">
+											</ObjectListItem>
+										</items>
+									</List>
 								</content>
 							</IconTabFilter>
 						</items>
